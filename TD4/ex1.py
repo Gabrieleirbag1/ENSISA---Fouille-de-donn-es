@@ -2,7 +2,7 @@ from PIL import Image
 import numpy as np
 import math
 
-im = Image.open("Emphysema_H_and_E.jpg")
+im = Image.open("maths.png")
 im.show()
 
 def euclidean_distance(ts_a, ts_b):
