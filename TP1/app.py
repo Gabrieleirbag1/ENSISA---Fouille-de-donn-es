@@ -129,5 +129,14 @@ for i, (idx, row) in enumerate(top_fb.iterrows()):
 plt.tight_layout()
 plt.show(block=False)
 
+
+# ===== HEATMAP FIRST OBJECTIVES ANALYSIS =====
+
+plt.figure(figsize=(10, 8))
+sns.heatmap(data_game[["firstInhibitor","firstBaron","firstRiftHerald","winner"]].corr(),annot = True)
+plt.title('Correlation between First Inhibitor, First Baron, First Rift Herald et Winner', fontsize=14, fontweight='bold')
+plt.tight_layout()
+plt.show(block=False)
+
 plt.pause(0.1)
 input("Press Enter to close all plots...")
