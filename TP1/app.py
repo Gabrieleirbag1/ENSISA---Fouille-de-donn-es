@@ -19,10 +19,13 @@ for champ_key, champ_info in champion_data['data'].items():
     champ_name = champ_info['name']
     champ_id_to_name[champ_id] = champ_name
 
-# Original plots
+# ===== FIRST INHIBITOR ANALYSIS =====
+
 first_inhibitor = sns.catplot(x="firstInhibitor", y="winner", data=data_game, kind="bar", palette="Set2", hue="firstInhibitor")
 plt.title('Impact du premier inhibiteur sur la victoire', fontsize=16, fontweight='bold')
 plt.show(block=False)
+
+# ===== FIRST BARON ANALYSIS =====
 
 first_baron = sns.catplot(x="firstBaron", y="winner", data=data_game, kind="bar", palette="Set3", hue="firstBaron")
 plt.title('Impact du premier baron sur la victoire', fontsize=16, fontweight='bold')
@@ -30,7 +33,6 @@ plt.show(block=False)
 
 # ===== CHAMPION WINRATE ANALYSIS =====
 
-# Collect all champion picks with their team and game outcome
 champion_games = []
 
 for idx, row in data_game.iterrows():
@@ -117,7 +119,6 @@ fb_stats['champion_name'] = fb_stats['champion_id'].map(champ_id_to_name)
 # Get top 10
 top_fb = fb_stats.head(10)
 
-# Plot top 10 champions by first blood
 plt.figure(figsize=(12, 6))
 sns.barplot(data=top_fb, x='fb_count', y='champion_name', palette='rocket', hue='fb_count')
 plt.title('Top 10 Champions in Teams with First Blood', fontsize=14, fontweight='bold')
@@ -128,6 +129,5 @@ for i, (idx, row) in enumerate(top_fb.iterrows()):
 plt.tight_layout()
 plt.show(block=False)
 
-# Keep the script running so windows don't close immediately
 plt.pause(0.1)
 input("Press Enter to close all plots...")
