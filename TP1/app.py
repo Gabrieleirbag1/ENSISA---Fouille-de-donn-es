@@ -25,9 +25,15 @@ first_inhibitor = sns.catplot(x="firstInhibitor", y="winner", data=data_game, ki
 plt.title('Impact du premier inhibiteur sur la victoire', fontsize=16, fontweight='bold')
 plt.show(block=False)
 
+# ===== FIRST HERALD ANALYSIS =====
+
+first_herald = sns.catplot(x="firstRiftHerald", y="winner", data=data_game, kind="bar", palette="Set3", hue="firstRiftHerald")
+plt.title('Impact du premier herald sur la victoire', fontsize=16, fontweight='bold')
+plt.show(block=False)
+
 # ===== FIRST BARON ANALYSIS =====
 
-first_baron = sns.catplot(x="firstBaron", y="winner", data=data_game, kind="bar", palette="Set3", hue="firstBaron")
+first_baron = sns.catplot(x="firstBaron", y="winner", data=data_game, kind="bar", palette="Set1", hue="firstBaron")
 plt.title('Impact du premier baron sur la victoire', fontsize=16, fontweight='bold')
 plt.show(block=False)
 
